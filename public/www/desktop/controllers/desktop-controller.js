@@ -6,6 +6,9 @@
 
     var moduleName = 'desktop';
 
+    /**
+     * desktop controller
+     */
     angular.module(moduleName)
         .controller('desktopController',
         ['$scope', '$translate',
