@@ -4,8 +4,7 @@
 
 /**
  * define User model
- * @param userName
- * @param password
+ * @param user
  * @constructor
  */
 function User(user) {
