@@ -1,5 +1,9 @@
 # Piggy-Bank
-a money saving app basic on material-design / ionic / nodeJs
+a money saving app
+
+-material-design(UI)
+-ionic + angularJs
+-nodeJs webApi
 
 #how to start
 
