@@ -1,9 +1,9 @@
 # Piggy-Bank
 a money saving app
 
--material-design(UI)
--ionic + angularJs
--nodeJs webApi
+- material-design(UI)
+- ionic + angularJs
+- nodeJs webApi
 
 #how to start
 
