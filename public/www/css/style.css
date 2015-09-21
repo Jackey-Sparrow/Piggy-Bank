@@ -1,1 +1,13 @@
 /* Empty. Add your own CSS if you like */
+.category i {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    display: block;
+}
+
+.category a {
+    text-align: center;
+    color: black;
+    display: block;
+}
