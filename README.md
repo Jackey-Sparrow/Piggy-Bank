@@ -3,6 +3,7 @@ a money saving app
 
 - material-design(UI)
 - ionic + angularJs
+- angular-chart
 - nodeJs webApi
 
 #how to start
