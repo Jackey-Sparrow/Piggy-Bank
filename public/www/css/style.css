@@ -11,3 +11,14 @@
     color: black;
     display: block;
 }
+
+/*rewrite css*/
+
+.header-bg-color{
+    background-color: #47ca69;
+    color:white;
+}
+
+.header-bg-color h1{
+    color:white;
+}
