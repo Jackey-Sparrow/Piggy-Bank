@@ -1,8 +1,9 @@
-
 var requireModules = [
     'ionic',
     'starter.controllers',
     'starter.services',
+    'desktop',
+    'dash',
     'setting'
 ];
 
@@ -33,23 +34,12 @@ angular.module('starter', requireModules)
         $stateProvider
 
             // setup an abstract state for the tabs directive
-            .state('desktop', {
-                url: '/desktop',
-                abstract: true,
-                templateUrl: 'desktop/templates/desktop.html'
-            })
+            //.state('desktop', {
+            //    url: '/desktop',
+            //    abstract: true,
+            //    templateUrl: 'desktop/templates/desktop.html'
+            //})
 
-            // Each tab has its own nav history stack:
-
-            .state('desktop.dash', {
-                url: '/dash',
-                views: {
-                    'desktop-dash': {
-                        templateUrl: 'dash/templates/tab-dash.html',
-                        controller: 'DashCtrl'
-                    }
-                }
-            })
 
             .state('desktop.chats', {
                 url: '/chats',
