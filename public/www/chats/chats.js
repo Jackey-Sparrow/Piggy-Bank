@@ -5,6 +5,9 @@
     'use strict';
     var moduleName = 'chats';
 
+    /**
+     *
+     */
     angular.module(moduleName, [])
         .config(function ($stateProvider) {
             $stateProvider
