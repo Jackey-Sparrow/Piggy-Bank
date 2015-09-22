@@ -74,6 +74,7 @@
 		"console",
 		"cordova",
 		"require",
-		"StatusBar"
+		"StatusBar",
+		"gulp"
 	]
 }
