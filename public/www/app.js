@@ -3,8 +3,6 @@
 
     var requireModules = [
         'ionic',
-        'starter.controllers',
-        'starter.services',
         'desktop',
         'dash',
         'chats',
