@@ -1,4 +1,4 @@
-(function () {
+(function (angular) {
     'use strict';
 
     var requireModules = [
@@ -28,4 +28,4 @@
         });
 
 
-})();
+})(angular);
