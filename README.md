@@ -38,3 +38,8 @@ npm start
 # angular-chart
 
 [angular-chart](http://jtblin.github.io/angular-chart.js)
+
+
+#jshint doc
+
+[docs](http://jshint.com/docs/)

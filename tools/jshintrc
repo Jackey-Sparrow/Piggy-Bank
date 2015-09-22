@@ -75,6 +75,11 @@
 		"cordova",
 		"require",
 		"StatusBar",
-		"gulp"
-	]
+		"gulp",
+		"module"
+	],
+	"globals":{
+		"angular":false,
+		"require":false
+	}
 }
