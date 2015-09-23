@@ -10,8 +10,8 @@
      * dash module
      */
     angular.module(moduleName)
-        .controller('DashCtrl', ['$scope', '$http',function ($scope,$http) {
-            $http.get('/test').then(function (response) {
+        .controller('DashCtrl', ['$scope', '$http', function ($scope, $http) {
+            $http.get(globals.webApi + '/test').then(function (response) {
                 console.log(response);
             }, function (error) {
                 console.log(error);
