@@ -17,7 +17,15 @@
                 .state('desktop', {
                     url: '/desktop',
                     abstract: true,
-                    templateUrl: 'desktop/templates/desktop.html'
+                    templateUrl: 'desktop/templates/desktop.html',
+                    resolve: {
+                        defaultState: ['$q', function ($q) {
+                            //check all the info which we need here
+                            setTimeout(function () {
+                                return true;
+                            }, 5000);
+                        }]
+                    }
                 });
 
             $urlRouterProvider.otherwise('/desktop/dash');
