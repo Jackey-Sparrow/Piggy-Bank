@@ -3,3 +3,4 @@ node_modules/
 .idea/jsLinters
 public/platforms
 public/plugins
+public/node_modules
