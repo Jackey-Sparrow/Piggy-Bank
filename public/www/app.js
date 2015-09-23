@@ -51,7 +51,7 @@
                         $rootScope.$emit('grantInValid', response);
                         return;
                     }
-                    else if(response.status === 405){
+                    else if (response.status === 405) {
                         console.log('server connect fail');
                         $rootScope.$emit('serverInvalid', response);
                     }
