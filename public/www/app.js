@@ -3,6 +3,7 @@
 
     var requireModules = [
         'ionic',
+        'platformApp',
         'desktop',
         'dash',
         'chats',
