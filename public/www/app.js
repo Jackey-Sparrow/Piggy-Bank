@@ -65,4 +65,11 @@
     angular.module('piggyBank').config(function ($httpProvider) {
         $httpProvider.interceptors.push('httpInterceptor');
     });
+
+    /**
+     * bootstrap the project
+     */
+    angular.element(document).ready(function () {
+        angular.bootstrap(document,['piggyBank']);
+    });
 })(angular);
