@@ -6,7 +6,8 @@
         'desktop',
         'dash',
         'chats',
-        'setting'
+        'setting',
+        'piggyBank.login'
     ];
 
     angular.module('piggyBank', requireModules)
