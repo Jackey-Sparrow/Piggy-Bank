@@ -3,6 +3,7 @@
 
     var requireModules = [
         'ionic',
+        'pascalprecht.translate',
         'platformApp',
         'desktop',
         'dash',
