@@ -65,50 +65,50 @@
 
         $translateProvider.translations('cn', {
             common: {
-                systemInfo: 'ÏµÍ³ÏûÏ¢',
+                systemInfo: 'ç³»ç»Ÿæ¶ˆæ¯',
                 about: 'Jackey Sparrow \n  Github:https://github.com/Jackey-Sparrow'
             },
             login: {
-                userName: 'ÓÃ»§Ãû',
-                password: 'ÃÜÂë',
-                language: 'ÓïÑÔ',
-                login: 'µÇÂ¼',
+                userName: 'ç”¨æˆ·å',
+                password: 'å¯†ç ',
+                language: 'è¯­è¨€',
+                login: 'ç™»å½•',
                 error: ''
             },
             tweet: {
-                tweetName: 'ÍÆÌØ',
-                like: 'ÔŞ',
-                comments: 'ÆÀÂÛ',
-                comment: 'ÆÀÂÛ',
-                share: '·ÖÏí',
-                addTweet: 'Ìí¼ÓÍÆÌØ',
-                somethingNew: '·ÖÏíĞÂÏÊÊÂ',
-                tweetDetail: '¾ßÌåÄÚÈİ',
-                forward: '×ª·¢',
-                addComment: 'Ìí¼ÓÆÀÂÛ',
-                noComment: 'ÔİÎŞÆÀÂÛ',
-                commentText: 'Ğ´Ò»¸öÆÀÂÛ',
-                reply: '»Ø¸´ÆÀÂÛ',
-                copy: '¸´ÖÆ',
-                cancel: 'È¡Ïû'
+                tweetName: 'æ¨ç‰¹',
+                like: 'èµ',
+                comments: 'è¯„è®º',
+                comment: 'è¯„è®º',
+                share: 'åˆ†äº«',
+                addTweet: 'æ·»åŠ æ¨ç‰¹',
+                somethingNew: 'åˆ†äº«æ–°é²œäº‹',
+                tweetDetail: 'å…·ä½“å†…å®¹',
+                forward: 'è½¬å‘',
+                addComment: 'æ·»åŠ è¯„è®º',
+                noComment: 'æš‚æ— è¯„è®º',
+                commentText: 'å†™ä¸€ä¸ªè¯„è®º',
+                reply: 'å›å¤è¯„è®º',
+                copy: 'å¤åˆ¶',
+                cancel: 'å–æ¶ˆ'
             },
             contacts: {
-                contactsName: 'Í¨Ñ¶Â¼',
-                search: 'ËÑË÷'
+                contactsName: 'é€šè®¯å½•',
+                search: 'æœç´¢'
             },
             setting: {
-                settingName: 'ÉèÖÃ',
-                feekback: 'Òâ¼û·µÀ¡',
-                update: '¼ì²â¸üĞÂ',
-                language: 'ÇĞ»»ÓïÑÔ',
-                about: '¹ØÓÚÎÒÃÇ',
-                logout: 'µÇ³ö'
+                settingName: 'è®¾ç½®',
+                feekback: 'æ„è§è¿”é¦ˆ',
+                update: 'æ£€æµ‹æ›´æ–°',
+                language: 'åˆ‡æ¢è¯­è¨€',
+                about: 'å…³äºæˆ‘ä»¬',
+                logout: 'ç™»å‡º'
             },
             language: {
-                english: 'Ó¢ÎÄ',
-                chinese: 'ÖĞÎÄ',
-                title: 'ÓïÑÔ',
-                switchLanguage: '×ª»»ÓïÑÔ'
+                english: 'è‹±æ–‡',
+                chinese: 'ä¸­æ–‡',
+                title: 'è¯­è¨€',
+                switchLanguage: 'è½¬æ¢è¯­è¨€'
             }
         });
 

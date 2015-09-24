@@ -6,12 +6,12 @@
 
     var moduleName = 'piggyBank.login';
 
-    angular.module(moduleName,[])
+    angular.module(moduleName, [])
         .config(function ($stateProvider) {
-            $stateProvider.state('login',{
-                url:'/login',
-             templateUrl: 'login/templates/login.html',
-                controller:'loginController'
+            $stateProvider.state('login', {
+                url: '/login',
+                templateUrl: 'login/templates/login.html',
+                controller: 'loginController'
             });
         });
 })(angular);

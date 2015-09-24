@@ -4,6 +4,7 @@
     var requireModules = [
         'ionic',
         'pascalprecht.translate',
+        'piggyBank.language',
         'platformApp',
         'desktop',
         'dash',
@@ -73,6 +74,6 @@
      * bootstrap the project
      */
     angular.element(document).ready(function () {
-        angular.bootstrap(document,['piggyBank']);
+        angular.bootstrap(document, ['piggyBank']);
     });
 })(angular);
