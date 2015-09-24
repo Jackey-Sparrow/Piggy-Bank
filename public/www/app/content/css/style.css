@@ -23,3 +23,16 @@
 .header-bg-color h1{
     color:white;
 }
+
+.basic-button-orange {
+    background: #53c56e;
+    color: #fff;
+    border-radius: 5px;
+    border-color: #ffffff;
+}
+
+/*rewrite*/
+
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-color-active-positive .tab-item.activated {
+    color: #53c56e;
+}

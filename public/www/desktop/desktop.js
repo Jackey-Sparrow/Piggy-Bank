@@ -28,6 +28,7 @@
                     }
                 });
 
-            $urlRouterProvider.otherwise('/desktop/dash');
+            //$urlRouterProvider.otherwise('/desktop/dash');
+            $urlRouterProvider.otherwise('/login');
         });
 })(angular);
