@@ -4,8 +4,8 @@
     var requireModules = [
         'ionic',
         //'ionic-material',
-        //'pascalprecht.translate',
         'piggyBank.language',
+        'ngCordova',
         'platformApp',
         'desktop',
         'dash',
