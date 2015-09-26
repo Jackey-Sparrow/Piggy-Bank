@@ -14,7 +14,8 @@
         'piggyBank.login'
     ];
 
-    angular.module('piggyBank', requireModules)
+    var appName = 'piggyBank';
+    angular.module(appName, requireModules)
 
         .run(['$ionicPlatform', '$rootScope',
             function ($ionicPlatform, $rootScope) {
@@ -47,7 +48,7 @@
     /**
      * interceptor http
      */
-    angular.module('piggyBank').factory('httpInterceptor', [
+    angular.module(appName).factory('httpInterceptor', [
         '$q', '$rootScope', function ($q, $rootScope) {
             var interptor = {
                 'responseError': function (response) {
@@ -67,14 +68,15 @@
         }
     ]);
 
-    angular.module('piggyBank').config(function ($httpProvider) {
+    angular.module(appName).config(function ($httpProvider) {
         $httpProvider.interceptors.push('httpInterceptor');
     });
+
 
     /**
      * bootstrap the project
      */
     angular.element(document).ready(function () {
-        angular.bootstrap(document, ['piggyBank']);
+        angular.bootstrap(document, [appName]);
     });
 })(angular);

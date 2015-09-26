@@ -1,0 +1,9 @@
+{
+  "login": {
+    "userName": "UserName",
+    "password": "Password",
+    "language": "Language",
+    "login": "Login",
+    "error": ""
+  }
+}
