@@ -6,7 +6,7 @@
 
     var moduleName = 'platformApp';
 
-    angular.module(moduleName, []);
+    angular.module(moduleName, ['pascalprecht.translate']);
 
 
     /**

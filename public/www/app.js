@@ -3,7 +3,8 @@
 
     var requireModules = [
         'ionic',
-        'pascalprecht.translate',
+        //'ionic-material',
+        //'pascalprecht.translate',
         'piggyBank.language',
         'platformApp',
         'desktop',
