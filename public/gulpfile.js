@@ -1,19 +1,19 @@
-
-
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var bower = require('bower');
-var concat = require('gulp-concat');
-var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var sh = require('shelljs');
+var gulp = require('gulp'),
+    gutil = require('gulp-util'),
+    bower = require('bower'),
+    concat = require('gulp-concat'),
+    sass = require('gulp-sass'),
+    minifyCss = require('gulp-minify-css'),
+    rename = require('gulp-rename'),
+    sh = require('shelljs'),
+    inject = require('gulp-inject'),
+    watch = require('gulp-watch');
 
 var paths = {
     sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass']);
+//gulp.task('default', ['sass']);
 
 gulp.task('sass', function (done) {
     gulp.src('./scss/ionic.app.scss')
@@ -52,3 +52,24 @@ gulp.task('git-check', function (done) {
     }
     done();
 });
+
+var basePath = './www';
+
+gulp.task('index', function () {
+    //watch(basePath + './**/*.js', {base: basePath}, function () {
+    return gulp.src(basePath + '/_build/index.html')
+        .pipe(inject(gulp.src([basePath + '/app/*/*/*.css'], {read: false}), {
+            name: 'css',
+            addRootSlash: false
+        }), {relative: true})
+
+        .pipe(inject(gulp.src([basePath + '/*/*.js'], {read: false}), {
+            name: 'module',
+            addRootSlash: false
+        }), {relative: true})
+
+        .pipe(gulp.dest(basePath + '/_build'));
+    // });
+});
+
+gulp.task('default', ['index']);

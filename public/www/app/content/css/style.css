@@ -13,6 +13,10 @@
     display: block;
 }
 
+.test{
+    width:100px;
+}
+
 /*rewrite css*/
 
 .header-bg-color{
