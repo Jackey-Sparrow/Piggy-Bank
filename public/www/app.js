@@ -17,8 +17,8 @@
     var appName = 'piggyBank';
     angular.module(appName, requireModules)
 
-        .run(['$ionicPlatform', '$rootScope',
-            function ($ionicPlatform, $rootScope) {
+        .run(['$ionicPlatform', '$rootScope', '$state',
+            function ($ionicPlatform, $rootScope, $state) {
 
                 $ionicPlatform.ready(function () {
                     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -35,12 +35,12 @@
                 });
 
                 $rootScope.$on('grantInValid', function () {
-                    //show login or state.go('login');
+                    $state.go('login');
                 });
 
 
                 $rootScope.$on('serverInvalid', function () {
-                    //$state.go('login');
+                    $state.go('login');
                 });
 
             }]);
