@@ -35,6 +35,10 @@ npm start
 
 ```
 
+# ionic-material
+
+
+
 # angular-chart
 
 [angular-chart](http://jtblin.github.io/angular-chart.js)
