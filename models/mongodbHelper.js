@@ -10,10 +10,8 @@ var mongodb = require('mongodb'),
 var pool = poolModule.Pool({
     name: 'mongodb',
     create: function (callback) {
-        var server_options = {'auto_reconnect': false, poolSize: 1};
-        var db_options = {w: -1};
-        var mongoserver = new mongodb.Server(setting.host, setting.port, server_options);
-        var db = new mongodb.Db(setting.db, mongoserver, db_options);
+        var mongoServer = new mongodb.Server(setting.host, setting.port, {'auto_reconnect': false, poolSize: 1}),
+            db = new mongodb.Db(setting.db, mongoServer, {w: -1});
         db.open(function (err, db) {
             if (err)return callback(err);
             callback(null, db);
@@ -133,7 +131,7 @@ ModelBasicClass.getAllByPage = function (dataTableName, callback) {
             return callback(err);
         } else {
 
-            db.collection(dataTableName).find().sort({"insertDate":1}).skip(10).limit(10).toArray(function (err, docs) {
+            db.collection(dataTableName).find().sort({"insertDate": 1}).skip(10).limit(10).toArray(function (err, docs) {
                 callback(null, docs);
                 pool.release(db);
             });
