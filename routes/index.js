@@ -42,9 +42,9 @@ module.exports = function (app) {
         mongodbHelper.addItem(user, 'Users', function (err, newUser) {
             if (err) {
                 res.send({
-                        data: 'addUserFail',
-                        message: ''
-                    });
+                    data: 'addUserFail',
+                    message: ''
+                });
             } else {
 
                 var token = jwt.sign(newUser, 'shhhhh', {expiresInMinutes: 30});
@@ -54,12 +54,12 @@ module.exports = function (app) {
 
     });
 
-    app.post('/login', function (req,res,next) {
+    app.post('/login', function (req, res, next) {
         var password = req.body.password;
         var filter = {userName: req.body.userName.trim()};
         mongodbHelper.getItemsByFilter(filter, 'Users', function (err, users) {
             var feekback = {
-                message:''
+                message: ''
             };
             if (!users.length) {
                 feekback.message = 'no user existed';
@@ -75,8 +75,19 @@ module.exports = function (app) {
                 return;
             }
 
-            feekback.message = 'success login';
-            res.send(feekback);
+            //feekback.message = 'success login';
+            var token = jwt.sign(user, 'shhhhh', {expiresInMinutes: 30});
+            res.send(token);
+            //res.send(feekback);
         });
+    });
+
+    app.post('/checkToken', function (req, res, next) {
+        console.log(req.headers);
+        var token = req.headers['authorization'];
+        console.log(token);
+        var decoded = jwt.verify(token, 'shhhhh');
+        console.log(decoded)
+        res.send({data: 'hello world'});
     });
 };

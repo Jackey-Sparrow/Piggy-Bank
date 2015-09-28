@@ -19,11 +19,9 @@
                     abstract: true,
                     templateUrl: 'desktop/templates/desktop.html',
                     resolve: {
-                        defaultState: ['$q', function ($q) {
+                        defaultState: ['$q','servicesLoginService', function ($q,servicesLoginService) {
                             //check all the info which we need here
-                            setTimeout(function () {
-                                return true;
-                            }, 5000);
+                            return servicesLoginService.checkLoginInfo();
                         }]
                     }
                 });

@@ -9,8 +9,8 @@
 
     /* jshint -W072 */ // many parameters because of dependency injection
     angular.module(moduleName).controller('loginController',
-        ['$scope', '$state', '$http', '$translate', 'languageService', 'localStorageService', '$ionicLoading',
-            function ($scope, $state, $http, $translate, languageService, localStorageService, $ionicLoading) {
+        ['$scope', '$state', '$http', '$translate', 'languageService', 'localStorageService', '$ionicLoading', '$injector',
+            function ($scope, $state, $http, $translate, languageService, localStorageService, $ionicLoading, $injector) {
 
                 $scope.showLoading = function () {
                     $ionicLoading.show({
@@ -42,6 +42,10 @@
                         };
                         $http.post(globals.webApi + '/login', options).then(function (response) {
                             console.log(response);
+
+                            var $http = $http || $injector.get('$http');
+                            $http.defaults.headers.common['Authorization'] = response.data;
+
                             localStorageService.setUserInfo({
                                 userName: $scope.login.userName,
                                 password: $scope.login.password,
@@ -51,7 +55,7 @@
                                 languageTranslate: language.languageTranslate
                             });
                             $scope.hideLoading();
-                            $state.go('desktop');
+                            $state.go('desktop.dash');
                         }, function (error) {
                             console.log(error);
                             $scope.hideLoading();
