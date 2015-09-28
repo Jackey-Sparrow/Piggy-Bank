@@ -41,19 +41,20 @@ var ModelBasicClass = function () {
  * @param callback
  */
 ModelBasicClass.addItem = function (item, dataTableName, callback) {
-    console.log('1');
+
     pool.acquire(function (err, db) {
         if (err) {
         } else {
             db.collection(dataTableName).insertOne(
                 item,
                 {safe: true},
-                function (err, newItems) {
+                function (err, newItem) {
                     if (err) {
                         pool.release(db);
                         return callback(err);
                     }
-                    callback(null, newItems[0]);
+
+                    callback(null, newItem.ops[0]);
                     pool.release(db);
                 }
             );

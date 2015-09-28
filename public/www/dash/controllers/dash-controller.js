@@ -11,7 +11,11 @@
      */
     angular.module(moduleName)
         .controller('DashCtrl', ['$scope', '$http', function ($scope, $http) {
-            $http.get(globals.webApi + '/test').then(function (response) {
+            var options = {
+                userName: 'Jackey',
+                password: 123
+            };
+            $http.post(globals.webApi + '/addUser', options).then(function (response) {
                 console.log(response);
             }, function (error) {
                 console.log(error);
