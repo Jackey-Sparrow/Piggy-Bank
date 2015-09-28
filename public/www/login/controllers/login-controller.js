@@ -9,8 +9,20 @@
 
     /* jshint -W072 */ // many parameters because of dependency injection
     angular.module(moduleName).controller('loginController',
-        ['$scope', '$state', '$http', '$translate', 'languageService',
-            function ($scope, $state, $http, $translate, languageService) {
+        ['$scope', '$state', '$http', '$translate', 'languageService', 'localStorageService', '$ionicLoading',
+            function ($scope, $state, $http, $translate, languageService, localStorageService, $ionicLoading) {
+
+                $scope.showLoading = function () {
+                    $ionicLoading.show({
+                        template: '<ion-spinner class="spinner-light"></ion-spinner>'
+                    });
+                };
+
+                //hide loading
+                $scope.hideLoading = function () {
+                    $ionicLoading.hide();
+                };
+
 
                 $scope.login = {
                     userName: '',
@@ -22,40 +34,38 @@
                     languageLabel: $translate.instant('login.language'),
                     loginLabel: $translate.instant('login.login'),
                     loginFn: function () {
-                        //var language = $scope.chooseLanguage;
-                        ////a fake login loading
-                        //$scope.showLoading();
-                        //setTimeout(function () {
-                        //    localStorageService.setUserInfo({
-                        //        userName: $scope.login.userName,
-                        //        password: $scope.login.password,
-                        //        languageId: language.LanguageId,
-                        //        language: language.language,
-                        //        languageName: language.LanguageName,
-                        //        languageTranslate: language.languageTranslate
-                        //    });
-                        //    $scope.hideLoading();
-                        //    $state.go('tab.tweet');
-                        //}, 2000);
-                        var options ={
-                            userName:$scope.login.userName,
-                            password:$scope.login.password
+                        var language = $scope.chooseLanguage;
+                        $scope.showLoading();
+                        var options = {
+                            userName: $scope.login.userName,
+                            password: $scope.login.password
                         };
                         $http.post(globals.webApi + '/login', options).then(function (response) {
                             console.log(response);
+                            localStorageService.setUserInfo({
+                                userName: $scope.login.userName,
+                                password: $scope.login.password,
+                                languageId: language.LanguageId,
+                                language: language.language,
+                                languageName: language.LanguageName,
+                                languageTranslate: language.languageTranslate
+                            });
+                            $scope.hideLoading();
+                            $state.go('desktop');
                         }, function (error) {
                             console.log(error);
+                            $scope.hideLoading();
                         });
                     }
                 };
 
                 //get localStorage userInfo
-                //var user = localStorageService.getUserInfo();
-                //if (user) {
-                //    $scope.login.userName = user.userName;
-                //    $scope.login.password = user.password;
-                //    $scope.login.languageId = user.languageId;
-                //}
+                var user = localStorageService.getUserInfo();
+                if (user) {
+                    $scope.login.userName = user.userName;
+                    $scope.login.password = user.password;
+                    $scope.login.languageId = user.languageId;
+                }
 
                 //set the language
                 $scope.chooseLanguage = languageService.getLanguageById($scope.login.languageId);
