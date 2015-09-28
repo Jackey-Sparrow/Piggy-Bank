@@ -20,7 +20,7 @@
                     templateUrl: 'desktop/templates/desktop.html',
                     resolve: {
                         defaultState: ['$q','servicesLoginService', function ($q,servicesLoginService) {
-                            //check all the info which we need here
+                            //check token here
                             return servicesLoginService.checkLoginInfo();
                         }]
                     }

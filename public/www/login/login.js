@@ -6,6 +6,9 @@
 
     var moduleName = 'piggyBank.login';
 
+    /**
+     * login module
+     */
     angular.module(moduleName, [])
         .config(function ($stateProvider) {
             $stateProvider.state('login', {

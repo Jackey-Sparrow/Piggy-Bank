@@ -6,12 +6,17 @@
 
     var moduleName = 'piggyBank.login';
 
-
-    /* jshint -W072 */ // many parameters because of dependency injection
+    /**
+     * login controller
+     *
+     /* jshint -W072 */ // many parameters because of dependency injection
     angular.module(moduleName).controller('loginController',
-        ['$scope', '$state', '$http', '$translate', 'languageService', 'localStorageService', '$ionicLoading', '$injector',
-            function ($scope, $state, $http, $translate, languageService, localStorageService, $ionicLoading, $injector) {
+        ['$scope', '$state', '$http', '$translate', 'languageService',
+            'localStorageService', '$ionicLoading', '$injector',
+            function ($scope, $state, $http, $translate, languageService,
+                      localStorageService, $ionicLoading, $injector) {
 
+                //todo: remove to platform Helper
                 $scope.showLoading = function () {
                     $ionicLoading.show({
                         template: '<ion-spinner class="spinner-light"></ion-spinner>'
@@ -24,6 +29,10 @@
                 };
 
 
+                /**
+                 * login options
+                 *
+                 */
                 $scope.login = {
                     userName: '',
                     password: '',
@@ -43,6 +52,7 @@
                         $http.post(globals.webApi + '/login', options).then(function (response) {
                             console.log(response);
 
+                            //todo: may remove to login service
                             var $http = $http || $injector.get('$http');
                             $http.defaults.headers.common['Authorization'] = 'Bearer ' + response.data;
 

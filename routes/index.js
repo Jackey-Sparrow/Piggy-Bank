@@ -103,7 +103,7 @@ module.exports = function (app) {
                 if (err) {
                     res.send(401);
                 }
-               
+
                 res.send({data: decode});
             });
 

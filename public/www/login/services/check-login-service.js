@@ -6,6 +6,11 @@
 
     var moduleName = 'piggyBank.login';
 
+    /**
+     * service login service
+     *
+     * check token
+     */
     angular.module(moduleName)
         .factory('servicesLoginService',
         ['$q', '$http',
