@@ -60,6 +60,10 @@
                     else if (response.status === 405) {
                         console.log('server connect fail');
                         $rootScope.$emit('serverInvalid', response);
+                    }else if (response.status === 403) {
+                        console.log('token missing');
+                        $rootScope.$emit('grantInValid', response);
+                        return;
                     }
                     //return response;
                 }

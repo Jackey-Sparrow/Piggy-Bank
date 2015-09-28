@@ -84,10 +84,19 @@ module.exports = function (app) {
 
     app.post('/checkToken', function (req, res, next) {
         console.log(req.headers);
-        var token = req.headers['authorization'];
-        console.log(token);
-        var decoded = jwt.verify(token, 'shhhhh');
-        console.log(decoded)
-        res.send({data: 'hello world'});
+        var bearerHeader = req.headers['authorization'];
+        if (typeof bearerHeader !== 'undefined') {
+            var bearer = bearerHeader.split(" ");
+            bearerToken = bearer[1];
+            //req.token = bearerToken;
+            var decoded = jwt.verify(bearerToken, 'shhhhh');
+            console.log(decoded)
+            res.send({data: 'hello world'});
+            next();
+        } else {
+            res.send(403);
+        }
+
+
     });
 };

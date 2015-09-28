@@ -44,7 +44,7 @@
                             console.log(response);
 
                             var $http = $http || $injector.get('$http');
-                            $http.defaults.headers.common['Authorization'] = response.data;
+                            $http.defaults.headers.common['Authorization'] = 'Bearer ' + response.data;
 
                             localStorageService.setUserInfo({
                                 userName: $scope.login.userName,
