@@ -24,6 +24,9 @@ module.exports = function (app) {
         res.send(token);
     });
 
+    /**
+     * add User
+     */
     app.post('/addUser', function (req, res, next) {
 
         var userName = req.body.userName,
@@ -54,6 +57,9 @@ module.exports = function (app) {
 
     });
 
+    /**
+     * login
+     */
     app.post('/login', function (req, res, next) {
         var password = req.body.password;
         var filter = {userName: req.body.userName.trim()};
@@ -82,6 +88,9 @@ module.exports = function (app) {
         });
     });
 
+    /**
+     * check token valid(not finish)
+     */
     app.post('/checkToken', function (req, res, next) {
         console.log(req.headers);
         var bearerHeader = req.headers['authorization'];
