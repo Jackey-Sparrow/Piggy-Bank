@@ -37,6 +37,15 @@
                         //    $scope.hideLoading();
                         //    $state.go('tab.tweet');
                         //}, 2000);
+                        var options ={
+                            userName:$scope.login.userName,
+                            password:$scope.login.password
+                        };
+                        $http.post(globals.webApi + '/login', options).then(function (response) {
+                            console.log(response);
+                        }, function (error) {
+                            console.log(error);
+                        });
                     }
                 };
 

@@ -15,10 +15,10 @@
                 userName: 'Jackey',
                 password: 123
             };
-            $http.post(globals.webApi + '/addUser', options).then(function (response) {
-                console.log(response);
-            }, function (error) {
-                console.log(error);
-            });
+            //$http.post(globals.webApi + '/addUser', options).then(function (response) {
+            //    console.log(response);
+            //}, function (error) {
+            //    console.log(error);
+            //});
         }]);
 })(angular);

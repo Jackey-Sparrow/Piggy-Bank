@@ -41,15 +41,42 @@ module.exports = function (app) {
         };
         mongodbHelper.addItem(user, 'Users', function (err, newUser) {
             if (err) {
-                console.log('add new user error');
+                res.send({
+                        data: 'addUserFail',
+                        message: ''
+                    });
             } else {
-                console.log('new user:');
-                console.log(newUser);
+
                 var token = jwt.sign(newUser, 'shhhhh', {expiresInMinutes: 30});
                 res.send(token);
             }
-            //return res.redirect('/submit/' + comment.menuId);
         });
 
+    });
+
+    app.post('/login', function (req,res,next) {
+        var password = req.body.password;
+        var filter = {userName: req.body.userName.trim()};
+        mongodbHelper.getItemsByFilter(filter, 'Users', function (err, users) {
+            var feekback = {
+                message:''
+            };
+            if (!users.length) {
+                feekback.message = 'no user existed';
+                res.send(feekback);
+                return;
+            }
+
+            var user = users[0];
+
+            if (user.password.toString().trim() != password.toString().trim()) {
+                feekback.message = 'password wrong';
+                res.send(feekback);
+                return;
+            }
+
+            feekback.message = 'success login';
+            res.send(feekback);
+        });
     });
 };
