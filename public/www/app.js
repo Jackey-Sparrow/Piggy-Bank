@@ -53,7 +53,7 @@
             var interptor = {
                 'responseError': function (response) {
                     if (response.status === 401) {
-                        console.log('token missing');
+                        console.log('token missing 401');
                         $rootScope.$emit('grantInValid', response);
                         return;
                     }

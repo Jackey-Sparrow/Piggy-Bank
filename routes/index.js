@@ -92,16 +92,21 @@ module.exports = function (app) {
      * check token valid(not finish)
      */
     app.post('/checkToken', function (req, res, next) {
-        console.log(req.headers);
+
         var bearerHeader = req.headers['authorization'];
+        console.log(bearerHeader);
         if (typeof bearerHeader !== 'undefined') {
             var bearer = bearerHeader.split(" ");
-            bearerToken = bearer[1];
-            //req.token = bearerToken;
-            var decoded = jwt.verify(bearerToken, 'shhhhh');
-            console.log(decoded)
-            res.send({data: 'hello world'});
-            next();
+            var bearerToken = bearer[1];
+            console.log(bearerToken);
+            jwt.verify(bearerToken, 'shhhhh', function (err,decode) {
+                if (err) {
+                    res.send(401);
+                }
+               
+                res.send({data: decode});
+            });
+
         } else {
             res.send(403);
         }
