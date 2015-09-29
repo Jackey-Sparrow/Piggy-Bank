@@ -17,8 +17,8 @@
     var appName = 'piggyBank';
     angular.module(appName, requireModules)
 
-        .run(['$ionicPlatform', '$rootScope', '$state',
-            function ($ionicPlatform, $rootScope, $state) {
+        .run(['$ionicPlatform', '$rootScope', '$state', 'tokenAuthentication',
+            function ($ionicPlatform, $rootScope, $state, tokenAuthentication) {
 
                 $ionicPlatform.ready(function () {
                     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -33,6 +33,8 @@
                         StatusBar.styleLightContent();
                     }
                 });
+
+                //tokenAuthentication.checkTokenValid();
 
                 //$rootScope.$on('loginSuccess', function () {
                 //    $state.go('desktop.dash');
@@ -55,8 +57,16 @@
                 });
 
 
-
             }]);
+
+    angular.module(appName).config(function (tokenAuthenticationProvider) {
+        urlBuilder();
+        tokenAuthenticationProvider.setUrl(globals.webApi + '/login');
+    });
+
+    function urlBuilder() {
+        //check the token here, and determine to go to desktop or not(if token is valid)
+    }
 
     /**
      * interceptor http

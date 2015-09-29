@@ -8,6 +8,10 @@
 
     angular.module(moduleName)
         .provider('tokenAuthentication', {
+            url: null,
+            setUrl: function (url) {
+                this.url = url;
+            },
 
             $get: ['$rootScope', '$injector', '$q',
                 function ($rootScope, $injector, $q) {
@@ -21,7 +25,7 @@
                     function login(options) {
                         $http = $http || $injector.get('$http');
                         var defer = $q.defer();
-                        $http.post(globals.webApi + '/login', options).then(function (response) {
+                        $http.post(that.url, options).then(function (response) {
                             console.log(response);
                             if (response.data && response.data.status) {
 

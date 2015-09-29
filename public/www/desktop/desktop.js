@@ -24,6 +24,7 @@
                         }],
                         defaultState: ['$q', 'servicesLoginService', 'checkTokenValid', function ($q, servicesLoginService, checkTokenValid) {
                             //check token here
+                            //ps: inject the checkTokenValid,let setToken run first
                             return servicesLoginService.checkLoginInfo();
                         }]
                     }
