@@ -72,17 +72,19 @@
                             $rootScope.userLoggedIn = false;
                             if (!tokenData) {
                                 $rootScope.$broadcast('tokenInValid');
-                                return;
+                                return false;
                             }
                             esle
                             {
                                 if (new Date().getTime() > tokenData.expiration) {
                                     $rootScope.$broadcast('tokenOutOfExpiration');
-                                    return;
-                                }else{
+                                    return false;
+                                } else {
                                     setToken(token);
                                     $rootScope.userLoggedIn = true;
                                     $rootScope.$broadcast('loginSuccess');
+
+                                    return true;
                                 }
                             }
                         });
