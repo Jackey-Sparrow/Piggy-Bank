@@ -11,10 +11,10 @@
      *
      /* jshint -W072 */ // many parameters because of dependency injection
     angular.module(moduleName).controller('loginController',
-        ['$scope', '$state', '$http', '$translate', 'languageService',
-            'localStorageService', '$ionicLoading', '$injector', 'tokenAuthentication',
-            function ($scope, $state, $http, $translate, languageService,
-                      localStorageService, $ionicLoading, $injector, tokenAuthentication) {
+        ['$scope', '$state', '$translate', 'languageService',
+            'localStorageService', '$ionicLoading', 'tokenAuthentication',
+            function ($scope, $state, $translate, languageService,
+                      localStorageService, $ionicLoading, tokenAuthentication) {
 
                 //todo: remove to platform Helper
                 $scope.showLoading = function () {
@@ -49,28 +49,9 @@
                             userName: $scope.login.userName,
                             password: $scope.login.password
                         };
-                        //$http.post(globals.webApi + '/login', options).then(function (response) {
-                        //    console.log(response);
-                        //
-                        //    //todo: may remove to login service
-                        //    var $http = $http || $injector.get('$http');
-                        //    $http.defaults.headers.common['Authorization'] = 'Bearer ' + response.data;
-                        //
-                        //    localStorageService.setUserInfo({
-                        //        userName: $scope.login.userName,
-                        //        password: $scope.login.password,
-                        //        languageId: language.LanguageId,
-                        //        language: language.language,
-                        //        languageName: language.LanguageName,
-                        //        languageTranslate: language.languageTranslate
-                        //    });
-                        //    $scope.hideLoading();
-                        //    $state.go('desktop.dash');
-                        //}, function (error) {
-                        //    console.log(error);
-                        //    $scope.hideLoading();
-                        //});
+
                         tokenAuthentication.login(options).then(function (token) {
+                            //store the userInfo
                             localStorageService.setUserInfo({
                                 userName: $scope.login.userName,
                                 password: $scope.login.password,
@@ -80,6 +61,7 @@
                                 languageTranslate: language.languageTranslate
                             });
                             $scope.hideLoading();
+                            $scope.login.error = '';
                             $state.go('desktop.dash');
                         }, function (error) {
                             $scope.login.error = error.message;
