@@ -34,6 +34,10 @@
                     }
                 });
 
+                //$rootScope.$on('loginSuccess', function () {
+                //    $state.go('desktop.dash');
+                //});
+
                 $rootScope.$on('grantInValid', function () {
                     $state.go('login');
                 });
@@ -49,6 +53,8 @@
                 $rootScope.$on('serverInvalid', function () {
                     $state.go('login');
                 });
+
+
 
             }]);
 
@@ -67,7 +73,7 @@
                     else if (response.status === 405) {
                         console.log('server connect fail');
                         $rootScope.$emit('serverInvalid', response);
-                    }else if (response.status === 403) {
+                    } else if (response.status === 403) {
                         console.log('token missing');
                         $rootScope.$emit('grantInValid', response);
                         return;

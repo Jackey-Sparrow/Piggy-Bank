@@ -25,7 +25,7 @@
                             console.log(response);
                             if (response.data && response.data.status) {
 
-                                setToken(response.data.token);
+                                setToken({access_token: response.data.token});
                                 loginSuccess();
                                 defer.resolve(response.data);
                             } else {
@@ -38,16 +38,14 @@
                         return defer.promise;
                     }
 
-                    function setToken(token) {
-                        var tokenData = {};
+                    function setToken(tokenData) {
                         if (!tokenData.expiration) {
                             //1000*60 one min
                             var expiration = new Date().getTime() + 1000 * 60;
                             tokenData.expiration = expiration;
                         }
                         var $http = $http || $injector.get('$http');
-                        $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-                        tokenData.access_token = token;
+                        $http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenData.access_token;
                         store.setItem(key, JSON.stringify(tokenData));
                     }
 
@@ -74,13 +72,12 @@
                                 $rootScope.$broadcast('tokenInValid');
                                 return false;
                             }
-                            esle
-                            {
+                            else {
                                 if (new Date().getTime() > tokenData.expiration) {
                                     $rootScope.$broadcast('tokenOutOfExpiration');
                                     return false;
                                 } else {
-                                    setToken(token);
+                                    setToken(tokenData);
                                     $rootScope.userLoggedIn = true;
                                     $rootScope.$broadcast('loginSuccess');
 
@@ -91,6 +88,7 @@
                     }
 
                     return {
+                        checkTokenValid: checkTokenValid,
                         setToken: setToken,
                         getToken: getToken,
                         login: login

@@ -19,7 +19,10 @@
                     abstract: true,
                     templateUrl: 'desktop/templates/desktop.html',
                     resolve: {
-                        defaultState: ['$q','servicesLoginService', function ($q,servicesLoginService) {
+                        checkTokenValid: ['tokenAuthentication', function (tokenAuthentication) {
+                            return tokenAuthentication.checkTokenValid();
+                        }],
+                        defaultState: ['$q', 'servicesLoginService', 'checkTokenValid', function ($q, servicesLoginService, checkTokenValid) {
                             //check token here
                             return servicesLoginService.checkLoginInfo();
                         }]
