@@ -6,6 +6,9 @@
 
     var moduleName = 'platformApp';
 
+    /**
+     * tokenAuthentication
+     */
     angular.module(moduleName)
         .provider('tokenAuthentication', {
             url: null,
@@ -44,6 +47,7 @@
 
                     function setToken(tokenData) {
                         if (!tokenData.expiration) {
+                            //start from 1970/01/01
                             //1000*60 one min
                             var expiration = new Date().getTime() + 1000 * 60;
                             tokenData.expiration = expiration;
