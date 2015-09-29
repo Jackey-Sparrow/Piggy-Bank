@@ -86,8 +86,7 @@
                                     return false;
                                 } else {
                                     setToken(tokenData);
-                                    $rootScope.userLoggedIn = true;
-                                    $rootScope.$broadcast('loginSuccess');
+                                    loginSuccess();
 
                                     return true;
                                 }
