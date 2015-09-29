@@ -38,9 +38,15 @@
                     }
 
                     function setToken(token) {
-
+                        var tokenData = {};
+                        if (!tokenData.expiration) {
+                            //1000*60 one min
+                            var expiration = new Date().getTime() + 1000 * 60;
+                            tokenData.expiration = expiration;
+                        }
                         var $http = $http || $injector.get('$http');
                         $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+                        tokenData.access_token = token;
                         store.setItem(key, JSON.stringify(tokenData));
                     }
 
