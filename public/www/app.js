@@ -38,6 +38,13 @@
                     $state.go('login');
                 });
 
+                $rootScope.$on('tokenOutOfExpiration', function () {
+                    $state.go('login');
+                });
+
+                $rootScope.$on('tokenInValid', function () {
+                    $state.go('login');
+                });
 
                 $rootScope.$on('serverInvalid', function () {
                     $state.go('login');

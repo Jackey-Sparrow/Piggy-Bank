@@ -26,6 +26,7 @@
                             if (response.data && response.data.status) {
 
                                 setToken(response.data.token);
+                                loginSuccess();
                                 defer.resolve(response.data);
                             } else {
                                 defer.reject(response.data);
@@ -59,6 +60,32 @@
                             deferred.reject();
                         }
                         return deferred.promise;
+                    }
+
+                    function loginSuccess() {
+                        $rootScope.userLoggedIn = true;
+                        $rootScope.$broadcast('loginSuccess');
+                    }
+
+                    function checkTokenValid() {
+                        return getToken().then(function (tokenData) {
+                            $rootScope.userLoggedIn = false;
+                            if (!tokenData) {
+                                $rootScope.$broadcast('tokenInValid');
+                                return;
+                            }
+                            esle
+                            {
+                                if (new Date().getTime() > tokenData.expiration) {
+                                    $rootScope.$broadcast('tokenOutOfExpiration');
+                                    return;
+                                }else{
+                                    setToken(token);
+                                    $rootScope.userLoggedIn = true;
+                                    $rootScope.$broadcast('loginSuccess');
+                                }
+                            }
+                        });
                     }
 
                     return {
