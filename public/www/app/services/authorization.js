@@ -18,6 +18,25 @@
 
                     $rootScope.userLoggedIn = false;
 
+                    function login(options) {
+                        $http = $http || $injector.get('$http');
+                        var defer = $q.defer();
+                        $http.post(globals.webApi + '/login', options).then(function (response) {
+                            console.log(response);
+                            if (response.data && response.data.status) {
+
+                                setToken(response.data.token);
+                                defer.resolve(response.data);
+                            } else {
+                                defer.reject(response.data);
+                            }
+
+                        }, function (error) {
+                            defer.reject(error);
+                        });
+                        return defer.promise;
+                    }
+
                     function setToken(token) {
 
                         var $http = $http || $injector.get('$http');
@@ -38,7 +57,8 @@
 
                     return {
                         setToken: setToken,
-                        getToken: getToken
+                        getToken: getToken,
+                        login: login
                     };
 
                 }]

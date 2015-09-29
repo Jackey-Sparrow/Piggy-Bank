@@ -65,7 +65,8 @@ module.exports = function (app) {
         var filter = {userName: req.body.userName.trim()};
         mongodbHelper.getItemsByFilter(filter, 'Users', function (err, users) {
             var feekback = {
-                message: ''
+                message: '',
+                status: false
             };
             if (!users.length) {
                 feekback.message = 'no user existed';
@@ -81,9 +82,11 @@ module.exports = function (app) {
                 return;
             }
 
-            //feekback.message = 'success login';
+            feekback.message = 'success login';
+            feekback.status = true;
             var token = jwt.sign(user, 'shhhhh', {expiresInMinutes: 30});
-            res.send(token);
+            feekback.token = token;
+            res.send(feekback);
             //res.send(feekback);
         });
     });
@@ -99,7 +102,7 @@ module.exports = function (app) {
             var bearer = bearerHeader.split(" ");
             var bearerToken = bearer[1];
             console.log(bearerToken);
-            jwt.verify(bearerToken, 'shhhhh', function (err,decode) {
+            jwt.verify(bearerToken, 'shhhhh', function (err, decode) {
                 if (err) {
                     res.send(401);
                 }
