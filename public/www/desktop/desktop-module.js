@@ -16,7 +16,7 @@
                 // setup an abstract state for the tabs directive
                 .state('desktop', {
                     url: '/desktop',
-                    abstract: true,
+                    //abstract: true,
                     templateUrl: 'desktop/templates/desktop.html',
                     resolve: {
                         checkTokenValid: ['tokenAuthentication', function (tokenAuthentication) {
@@ -31,6 +31,6 @@
                 });
 
             //$urlRouterProvider.otherwise('/desktop/dash');
-            $urlRouterProvider.otherwise('/login');
+            $urlRouterProvider.otherwise('/desktop');
         });
 })(angular);

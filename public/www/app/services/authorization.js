@@ -49,7 +49,7 @@
                         if (!tokenData.expiration) {
                             //start from 1970/01/01
                             //1000*60 one min
-                            var expiration = new Date().getTime() + 1000 * 60;
+                            var expiration = new Date().getTime() + 1000 * 60 * 2;
                             tokenData.expiration = expiration;
                         }
                         var $http = $http || $injector.get('$http');

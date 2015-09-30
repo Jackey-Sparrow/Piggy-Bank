@@ -21,7 +21,9 @@
                     return $http.post(globals.webApi + '/checkToken')
                         .then(function (response) {
                             //if(response){}
-                            return response.data;
+                            if(response&&response.data){
+                                return response.data;
+                            }
                         });
                 };
 

@@ -61,6 +61,8 @@
 
     angular.module(appName).config(function (tokenAuthenticationProvider) {
         urlBuilder();
+
+
         tokenAuthenticationProvider.setUrl(globals.webApi + '/login');
     });
 
