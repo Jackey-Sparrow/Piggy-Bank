@@ -15,11 +15,6 @@
                 url: '/login',
                 templateUrl: 'login/templates/login.html',
                 controller: 'loginController'
-                //resolve:{
-                //    checkToken:['tokenAuthentication',function (tokenAuthentication) {
-                //
-                //    }]
-                //}
             });
         });
 })(angular);
