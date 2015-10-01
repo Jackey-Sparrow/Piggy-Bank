@@ -9,7 +9,7 @@
      * @type {string}
      */
 
-    var moduleName = 'setting';
+    var moduleName = 'piggyBank.setting';
     angular.module(moduleName, [])
         .config(function ($stateProvider) {
 

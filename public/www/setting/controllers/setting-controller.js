@@ -4,7 +4,7 @@
 (function (angular) {
     'use strict';
 
-    var moduleName = 'setting';
+    var moduleName = 'piggyBank.setting';
 
     angular.module(moduleName)
         .controller('AccountCtrl', function ($scope) {

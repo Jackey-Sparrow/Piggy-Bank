@@ -4,7 +4,7 @@
 (function (angular) {
     'use strict';
 
-    var moduleName = 'dash';
+    var moduleName = 'piggyBank.dash';
 
     /**
      * dash module
@@ -15,10 +15,6 @@
                 userName: 'Jackey',
                 password: 123
             };
-            //$http.post(globals.webApi + '/addUser', options).then(function (response) {
-            //    console.log(response);
-            //}, function (error) {
-            //    console.log(error);
-            //});
+
         }]);
 })(angular);

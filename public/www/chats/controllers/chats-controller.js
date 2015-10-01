@@ -4,7 +4,7 @@
 (function (angular) {
     'use strict';
 
-    var moduleName = 'chats';
+    var moduleName = 'piggyBank.chats';
 
     angular.module(moduleName)
         .controller('ChatsCtrl',

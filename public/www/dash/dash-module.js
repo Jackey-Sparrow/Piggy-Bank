@@ -4,7 +4,7 @@
 (function (angular) {
     'use strict';
 
-    var moduleName = 'dash';
+    var moduleName = 'piggyBank.dash';
 
     /**
      * dash module

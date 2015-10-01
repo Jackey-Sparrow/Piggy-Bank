@@ -30,7 +30,6 @@
                     }
                 });
 
-            //$urlRouterProvider.otherwise('/desktop/dash');
             $urlRouterProvider.otherwise('/desktop');
         });
 })(angular);

@@ -3,7 +3,7 @@
  */
 (function (angular) {
     'use strict';
-    var moduleName = 'chats';
+    var moduleName = 'piggyBank.chats';
 
     /**
      *

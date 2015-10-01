@@ -8,9 +8,9 @@
         'ngCordova',
         'platformApp',
         'desktop',
-        'dash',
-        'chats',
-        'setting',
+        'piggyBank.dash',
+        'piggyBank.chats',
+        'piggyBank.setting',
         'piggyBank.login'
     ];
 
