@@ -100,10 +100,10 @@
             var key = 'en';
 
             //get localStorage
-            //var lastStoreUser = JSON.parse(localStorage.getItem('hiAppUserInfo')) || [];
-            //if (lastStoreUser && lastStoreUser.languageTranslate) {
-            //    key = lastStoreUser.languageTranslate;
-            //}
+            var lastStoreUser = JSON.parse(localStorage.getItem('piggyBankUserInfo')) || [];
+            if (lastStoreUser && lastStoreUser.languageTranslate) {
+                key = lastStoreUser.languageTranslate;
+            }
 
             $translateProvider.preferredLanguage(key);
         });

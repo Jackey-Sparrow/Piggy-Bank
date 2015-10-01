@@ -7,7 +7,7 @@
     angular.module('platformApp').constant('messenger', Messenger); // jshint ignore:line
 
     function Messenger() {
-        
+
         var stacks = [];
 
         this.register = function (fn) {
