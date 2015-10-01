@@ -35,77 +35,18 @@
 
             //translate
             $translateProvider.translations('en', {
-                common: {
-                    systemInfo: 'system info'
-                },
-                login: {
-                    userName: 'UserName',
-                    password: 'Password',
-                    language: 'Language',
-                    login: 'Login',
-                    error: ''
-                },
-                contacts: {
-                    contactsName: 'Contacts',
+                platform: {
                     search: 'Search'
-                },
-                setting: {
-                    settingName: 'Setting',
-                    feekback: 'Feekback',
-                    update: 'Update',
-                    language: 'Language',
-                    about: 'About',
-                    logout: 'Log out'
-                },
-                language: {
-                    english: 'English',
-                    chinese: 'Chinese',
-                    title: 'Language',
-                    switchLanguage: 'switch Language'
                 }
             });
 
             $translateProvider.translations('cn', {
-                common: {
-                    systemInfo: '系统消息',
-                    about: 'Jackey Sparrow \n  Github:https://github.com/Jackey-Sparrow'
-                },
-                login: {
-                    userName: '用户名',
-                    password: '密码',
-                    language: '语言',
-                    login: '登录',
-                    error: ''
-                },
-                contacts: {
-                    contactsName: '通讯录',
+
+                platform: {
                     search: '搜索'
-                },
-                setting: {
-                    settingName: '设置',
-                    feekback: '意见返馈',
-                    update: '检测更新',
-                    language: '切换语言',
-                    about: '关于我们',
-                    logout: '登出'
-                },
-                language: {
-                    english: '英文',
-                    chinese: '中文',
-                    title: '语言',
-                    switchLanguage: '转换语言'
                 }
             });
 
-            var key = 'en';
-
-            //get localStorage
-            var lastStoreUser = JSON.parse(localStorage.getItem('piggyBankUserInfo')) || [];
-            if (lastStoreUser && lastStoreUser.languageTranslate) {
-                key = lastStoreUser.languageTranslate;
-            }
-
-            $translateProvider.preferredLanguage(key);
         });
 
         //shoule use {'xx'|translate}

@@ -56,14 +56,24 @@
 
     angular.module(appName).config(function (tokenAuthenticationProvider) {
         urlBuilder();
-
-
         tokenAuthenticationProvider.setUrl(globals.webApi + '/login');
     });
 
     function urlBuilder() {
         //check the token here, and determine to go to desktop or not(if token is valid)
     }
+
+    angular.module(appName).config(function ($translateProvider) {
+
+        var key = 'en';
+        //get localStorage
+        var lastStoreUser = JSON.parse(localStorage.getItem('piggyBankUserInfo')) || [];
+        if (lastStoreUser && lastStoreUser.languageTranslate) {
+            key = lastStoreUser.languageTranslate;
+        }
+
+        $translateProvider.preferredLanguage(key);
+    });
 
     /**
      * interceptor http
