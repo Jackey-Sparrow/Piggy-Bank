@@ -70,6 +70,25 @@
                     }
                 };
 
+                //$scope.text = {};
+                //
+                //var loadTranslations = function () {
+                //
+                //    $scope.text = platformTranslateService.instant({
+                //        login: ['userName', 'password', 'language']
+                //    });
+                //};
+                //
+                //// register translation changed event
+                //platformTranslateService.translationChanged.register(loadTranslations);
+                //
+                //
+                //// register a module - translation table will be reloaded if module isn't available yet
+                //if (!platformTranslateService.registerModule('app')) {
+                //    // if translation is already available, call loadTranslation directly
+                //    loadTranslations();
+                //}
+
                 //get localStorage userInfo
                 var user = localStorageService.getUserInfo();
                 if (user) {

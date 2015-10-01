@@ -34,11 +34,6 @@
                     }
                 });
 
-                //tokenAuthentication.checkTokenValid();
-
-                //$rootScope.$on('loginSuccess', function () {
-                //    $state.go('desktop.dash');
-                //});
 
                 $rootScope.$on('grantInValid', function () {
                     $state.go('login');
