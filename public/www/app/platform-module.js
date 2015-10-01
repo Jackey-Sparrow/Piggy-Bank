@@ -49,38 +49,5 @@
 
         });
 
-        //shoule use {'xx'|translate}
-    //angular.module(moduleName).config(function ($translateProvider, $translatePartialLoaderProvider) {
-    //
-    //    $translateProvider.useLoader('$translatePartialLoader', {
-    //        urlTemplate: '{part}/content/i18n/{lang}.json'
-    //    });
-    //
-    //    $translatePartialLoaderProvider.addPart('app');
-    //    $translateProvider.fallbackLanguage('en');
-    //    $translateProvider.translationNotFoundIndicator('X');
-    //
-    //    //var lastUsedLanguage = globals.readLastLanguageFromStorage();
-    //
-    //    //if (lastUsedLanguage) {
-    //    //$translateProvider.use(lastUsedLanguage.language);
-    //    //} else {
-    //
-    //    $translateProvider.use('en');
-    //
-    //
-    //    // }
-    //})
-
-    //angular.module(moduleName).config(function ($translateProvider) {
-    //    $translateProvider.useStaticFilesLoader({
-    //        'prefix': 'app/content/i18n/',
-    //        'suffix': '.json'
-    //    });
-    //
-    //    $translateProvider.preferredLanguage('en');
-    //    //$translateProvider.forceAsyncReload(true);
-    //});
-
 
 })(angular);
