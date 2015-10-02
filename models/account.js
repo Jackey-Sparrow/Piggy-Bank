@@ -7,7 +7,7 @@
  * @param account
  * @constructor
  */
-function Account(account){
+function Account(account) {
     this.chooseDate = account.chooseDate;
     this.description = account.description;
     this.type = account.type;
