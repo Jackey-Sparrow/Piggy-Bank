@@ -5,20 +5,22 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive" data-ng-controller="desktopController">
 
-  <!-- Dashboard Tab -->
-  <ion-tab title="Status" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/desktop/dash">
-    <ion-nav-view name="desktop-dash"></ion-nav-view>
-  </ion-tab>
+    <!-- Dashboard Tab -->
+    <ion-tab title="{{desktop.dash}}" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/desktop/dash">
+        <ion-nav-view name="desktop-dash"></ion-nav-view>
+    </ion-tab>
 
-  <!-- Chats Tab -->
-  <ion-tab title="Chats" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/desktop/chats">
-    <ion-nav-view name="desktop-chats"></ion-nav-view>
-  </ion-tab>
+    <!-- Chats Tab -->
+    <ion-tab title="{{desktop.chats}}" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes"
+             href="#/desktop/chats">
+        <ion-nav-view name="desktop-chats"></ion-nav-view>
+    </ion-tab>
 
-  <!-- Account Tab -->
-  <ion-tab title="Account" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/desktop/account">
-    <ion-nav-view name="desktop-account"></ion-nav-view>
-  </ion-tab>
+    <!-- Account Tab -->
+    <ion-tab title="{{desktop.account}}" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear"
+             href="#/desktop/account">
+        <ion-nav-view name="desktop-account"></ion-nav-view>
+    </ion-tab>
 
 
 </ion-tabs>
