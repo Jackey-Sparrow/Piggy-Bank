@@ -10,7 +10,7 @@
      * desktop module
      */
     angular.module(moduleName, [])
-        .config(function ($stateProvider, $urlRouterProvider) {
+        .config(function ($stateProvider, $urlRouterProvider,$translateProvider) {
             $stateProvider
 
                 // setup an abstract state for the tabs directive
@@ -31,5 +31,21 @@
                 });
 
             $urlRouterProvider.otherwise('/desktop');
+
+            $translateProvider.translations('en', {
+                desktop: {
+                    dash: 'dash',
+                    chats: 'chats',
+                    account: 'account'
+                }
+            });
+
+            $translateProvider.translations('cn', {
+                desktop: {
+                    dash: '面板',
+                    chats: '聊天',
+                    account: '账号'
+                }
+            });
         });
 })(angular);
