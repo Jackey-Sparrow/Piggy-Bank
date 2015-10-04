@@ -55,14 +55,11 @@
             }]);
 
     angular.module(appName).config(function (tokenAuthenticationProvider) {
-        urlBuilder();
+
         tokenAuthenticationProvider.setUrl(globals.webApi + '/login');
     });
 
-    function urlBuilder() {
-        //check the token here, and determine to go to desktop or not(if token is valid)
-    }
-
+    
     angular.module(appName).config(function ($translateProvider) {
 
         var key = 'en';
