@@ -17,7 +17,7 @@
                 url: '/setting',
                 views: {
                     'desktop-setting': {
-                        templateUrl: 'setting/templates/tab-setting.html',
+                        templateUrl: 'setting/templates/setting.html',
                         controller: 'settingCtrl'
                     }
                 }

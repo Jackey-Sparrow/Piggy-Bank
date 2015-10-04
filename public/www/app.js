@@ -9,7 +9,7 @@
         'platformApp',
         'desktop',
         'piggyBank.dash',
-        'piggyBank.chats',
+        'piggyBank.account',
         'piggyBank.setting',
         'piggyBank.login'
     ];

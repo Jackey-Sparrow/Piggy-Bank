@@ -35,7 +35,7 @@
             $translateProvider.translations('en', {
                 desktop: {
                     dash: 'dash',
-                    chats: 'chats',
+                    account: 'account',
                     setting: 'setting'
                 }
             });
@@ -43,7 +43,7 @@
             $translateProvider.translations('cn', {
                 desktop: {
                     dash: '面板',
-                    chats: '聊天',
+                    account: '账目',
                     setting: '设置'
                 }
             });
