@@ -36,7 +36,7 @@
                 desktop: {
                     dash: 'dash',
                     chats: 'chats',
-                    account: 'account'
+                    setting: 'setting'
                 }
             });
 
@@ -44,7 +44,7 @@
                 desktop: {
                     dash: '面板',
                     chats: '聊天',
-                    account: '账号'
+                    setting: '设置'
                 }
             });
         });

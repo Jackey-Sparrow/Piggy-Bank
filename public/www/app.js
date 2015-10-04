@@ -59,7 +59,7 @@
         tokenAuthenticationProvider.setUrl(globals.webApi + '/login');
     });
 
-    
+
     angular.module(appName).config(function ($translateProvider) {
 
         var key = 'en';

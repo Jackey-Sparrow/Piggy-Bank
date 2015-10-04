@@ -13,12 +13,12 @@
     angular.module(moduleName, [])
         .config(function ($stateProvider, $translateProvider) {
 
-            $stateProvider.state('desktop.account', {
-                url: '/account',
+            $stateProvider.state('desktop.setting', {
+                url: '/setting',
                 views: {
-                    'desktop-account': {
-                        templateUrl: 'setting/templates/tab-account.html',
-                        controller: 'AccountCtrl'
+                    'desktop-setting': {
+                        templateUrl: 'setting/templates/tab-setting.html',
+                        controller: 'settingCtrl'
                     }
                 }
             });

@@ -7,7 +7,7 @@
     var moduleName = 'piggyBank.setting';
 
     angular.module(moduleName)
-        .controller('AccountCtrl', function ($scope) {
+        .controller('settingCtrl', function ($scope) {
             $scope.settings = {
                 enableFriends: true
             };
