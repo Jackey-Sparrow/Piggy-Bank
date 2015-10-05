@@ -16,8 +16,8 @@
                 this.url = url;
             },
 
-            $get: ['$rootScope', '$injector', '$q',
-                function ($rootScope, $injector, $q) {
+            $get: ['$rootScope', '$injector', '$q','$ionicLoading',
+                function ($rootScope, $injector, $q,$ionicLoading) {
                     var $http,
                         key = 'piggyBank:authenticationToken',
                         store = localStorage,
@@ -74,20 +74,23 @@
                     }
 
                     function checkTokenValid() {
+                        $ionicLoading.show();
                         return getToken().then(function (tokenData) {
                             $rootScope.userLoggedIn = false;
                             if (!tokenData) {
                                 $rootScope.$broadcast('tokenInValid');
+                                $ionicLoading.hide();
                                 return false;
                             }
                             else {
                                 if (new Date().getTime() > tokenData.expiration) {
                                     $rootScope.$broadcast('tokenOutOfExpiration');
+                                    $ionicLoading.hide();
                                     return false;
                                 } else {
                                     setToken(tokenData);
                                     loginSuccess();
-
+                                    $ionicLoading.hide();
                                     return true;
                                 }
                             }

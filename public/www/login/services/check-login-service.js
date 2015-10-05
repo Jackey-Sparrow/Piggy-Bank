@@ -13,17 +13,22 @@
      */
     angular.module(moduleName)
         .factory('servicesLoginService',
-        ['$q', '$http',
-            function ($q, $http) {
+        ['$q', '$http','$ionicLoading',
+            function ($q, $http,$ionicLoading) {
                 var service = {};
 
                 service.checkLoginInfo = function () {
+                    $ionicLoading.show();
                     return $http.post(globals.webApi + '/checkToken')
                         .then(function (response) {
                             //if(response){}
                             if(response&&response.data){
+                                $ionicLoading.hide();
                                 return response.data;
                             }
+                            $ionicLoading.hide();
+                        }, function () {
+                            $ionicLoading.hide();
                         });
                 };
 
