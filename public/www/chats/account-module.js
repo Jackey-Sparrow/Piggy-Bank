@@ -16,7 +16,9 @@
                     url: '/account',
                     views: {
                         'desktop-account': {
-                            templateUrl: 'chats/templates/account.html',
+                            templateUrl: function () {
+                                return 'chats/templates/account.html'
+                            },
                             controller: 'ChatsCtrl'
                         }
                     }
@@ -25,10 +27,9 @@
                     url: '/account/:chatId',
                     views: {
                         'desktop-account': {
-                            templateUrl: function(){
-                                return  'chats/templates/account-detail.html'
+                            templateUrl: function () {
+                                return 'chats/templates/account-detail.html'
                             },
-
                             controller: 'ChatDetailCtrl'
                         }
                     }
