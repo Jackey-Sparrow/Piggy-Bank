@@ -7,7 +7,7 @@
     var moduleName = 'piggyBank.account';
 
     /**
-     *
+     * account module
      */
     angular.module(moduleName, [])
         .config(function ($stateProvider) {
